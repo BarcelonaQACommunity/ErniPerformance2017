@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Factory.SetUp;
 using Pageobject.Appium.Factory.Pages.Appium;
 using Pageobject.Factory.Contracts.Pages.Contracts;
 
@@ -25,6 +26,7 @@ namespace CrossLayer.DI.Module
         private static void AppAndroidContainer()
         {
             var buildContainer = new ContainerBuilder();
+            buildContainer.RegisterType<SetUpWebDriver>().As<ISetUpWebDriver>();
             buildContainer.RegisterType<AndroidMainViewPage>().As<IMainViewPage>();
             buildContainer.RegisterType<AndroidAddTaskPage>().As<IAddTaskPage>();
             buildContainer.RegisterType<AndroidEditTaskPage>().As<IEditTaskPage>();

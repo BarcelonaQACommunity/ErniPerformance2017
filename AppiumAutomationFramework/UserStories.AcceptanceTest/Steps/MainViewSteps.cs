@@ -35,7 +35,7 @@ namespace UserStories.AcceptanceTest.Steps
         [Given(@"The application is running with the '(.*)' configuration")]
         public void TheApplicationIsRunningWithTheDefaultConfiguration(string configuration)
         {
-            this._mainViewPage.SetUpWithConfiguration(configuration);
+            // TODO
         }
 
         /// <summary>

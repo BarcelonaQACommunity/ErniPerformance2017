@@ -12,6 +12,11 @@ namespace Pageobject.Appium.Factory.Base.Appium
     public class AndroidPageObjectBase : IPageObjectBase
     {
         /// <summary>
+        /// The set up web driver
+        /// </summary>
+        protected ISetUpWebDriver SetUpWebDriverFactory;
+
+        /// <summary>
         /// The android driver.
         /// Used for all the factory to interact with the elements.
         /// </summary>
@@ -20,19 +25,10 @@ namespace Pageobject.Appium.Factory.Base.Appium
         /// <summary>
         /// Initializes a new instance of the <see cref="AndroidPageObjectBase"/> class.
         /// </summary>
-        public AndroidPageObjectBase()
+        public AndroidPageObjectBase(ISetUpWebDriver setUpWebDriver)
         {
-            this.AndroidDriver = SetUpWebDriver.SetUpAppiumDriver();
-        }
-
-        /// <summary>
-        /// Sets up default configuration.
-        /// </summary>
-        protected void SetUpDefaultConfiguration()
-        {
-            this.AndroidDriver = SetUpWebDriver.SetUpAppiumDriver();
-
-            // If required, add more default configuration values.
+            SetUpWebDriverFactory = setUpWebDriver;
+            AndroidDriver = setUpWebDriver.SetUpAndroidWebDriver();
         }
     }
 }

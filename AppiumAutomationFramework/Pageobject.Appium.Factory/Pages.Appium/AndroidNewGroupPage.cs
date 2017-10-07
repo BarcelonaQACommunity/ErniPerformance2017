@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using Pageobject.Appium.Factory.Base.Appium;
 using Pageobject.Factory.Contracts.Pages.Contracts;
+using Factory.SetUp;
 
 namespace Pageobject.Appium.Factory.Pages.Appium
 {
@@ -30,7 +28,8 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <summary>
         /// Initializes a new instance of the <see cref="AndroidNewGroupPage"/> class.
         /// </summary>
-        public AndroidNewGroupPage()
+        public AndroidNewGroupPage(ISetUpWebDriver setUpWebDriver)
+            : base(setUpWebDriver)
         {
             PageFactory.InitElements(this.AndroidDriver, this);
         }

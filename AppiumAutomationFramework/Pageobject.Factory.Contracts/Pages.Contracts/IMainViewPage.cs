@@ -9,12 +9,6 @@ namespace Pageobject.Factory.Contracts.Pages.Contracts
     public interface IMainViewPage : IPageObjectBase
     {
         /// <summary>
-        /// Used for the feature to set the configuration.
-        /// </summary>
-        /// <param name="configuration">The configuration.</param>
-        void SetUpWithConfiguration(string configuration);
-
-        /// <summary>
         /// Proverb appears when the application does not have tasks.
         /// </summary>
         string Proverb { get; }

@@ -45,27 +45,10 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <summary>
         /// Initializes a new instance of the <see cref="AndroidMainViewPage"/> class.
         /// </summary>
-        public AndroidMainViewPage()
+        public AndroidMainViewPage(ISetUpWebDriver setUpWebDriver)
+            : base (setUpWebDriver)
         {
             PageFactory.InitElements(this.AndroidDriver, this);
-        }
-
-        /// <summary>
-        /// Used for the feature to set the configuration.
-        /// </summary>
-        /// <param name="configuration">The configuration.</param>
-        /// <exception cref="NotFoundException"></exception>
-        public void SetUpWithConfiguration(string configuration)
-        {
-            switch (configuration)
-            {
-                case "Default":
-                    this.SetUpDefaultConfiguration();
-                    break;
-
-                default:
-                    throw new NotFoundException($"{configuration} does not exist.");
-            }
         }
 
         /// <summary>
@@ -110,7 +93,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <param name="scenarioTitle">The scenario title.</param>
         public void TakeScreenshot(string scenarioTitle)
         {
-            SetUpWebDriver.MakeScreenshot(scenarioTitle);
+            SetUpWebDriverFactory.MakeScreenshot(scenarioTitle);
         }
 
         /// <summary>
@@ -118,7 +101,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public void CloseAndroidDriver()
         {
-            SetUpWebDriver.CloseAndroidDriver();
+            SetUpWebDriverFactory.CloseAndroidDriver();
         }
     }
 }

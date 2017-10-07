@@ -51,6 +51,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Factory.SetUp\Factory.SetUp.csproj">
+      <Project>{d361c7dc-cf40-42a5-8f32-8dd78c477336}</Project>
+      <Name>Factory.SetUp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pageobject.Appium.Factory\Pageobject.Appium.Factory.csproj">
       <Project>{f4fa035f-d117-4dbf-b950-0127912f2c47}</Project>
       <Name>Pageobject.Appium.Factory</Name>

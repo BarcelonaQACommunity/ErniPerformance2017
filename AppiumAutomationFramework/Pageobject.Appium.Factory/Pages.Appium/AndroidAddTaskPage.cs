@@ -7,6 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using Pageobject.Appium.Factory.Base.Appium;
 using Pageobject.Factory.Contracts.Pages.Contracts;
+using Factory.SetUp;
 
 namespace Pageobject.Appium.Factory.Pages.Appium
 {
@@ -49,7 +50,8 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <summary>
         /// Initializes a new instance of the <see cref="AndroidAddTaskPage"/> class.
         /// </summary>
-        public AndroidAddTaskPage()
+        public AndroidAddTaskPage(ISetUpWebDriver setUpWebDriver)
+            : base (setUpWebDriver)
         {
             PageFactory.InitElements(this.AndroidDriver, this);
         }

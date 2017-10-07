@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISetUpWebDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetUpWebDriver.cs" />
   </ItemGroup>

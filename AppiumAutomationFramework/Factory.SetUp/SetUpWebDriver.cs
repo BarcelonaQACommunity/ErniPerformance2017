@@ -2,8 +2,6 @@
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using CrossLayer.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
@@ -15,14 +13,13 @@ namespace Factory.SetUp
     /// <summary>
     /// Initialize the Appium Driver.
     /// </summary>
-    public static class SetUpWebDriver
+    /// <seealso cref="Factory.SetUp.ISetUpWebDriver" />
+    public class SetUpWebDriver : ISetUpWebDriver
     {
         private const string AndroidApplicationPath = @"\Factory.SetUp\binaries\mylist.apk";
 
-        /// <summary>
-        /// Appium Driver.
-        /// </summary>
-        public static AppiumDriver<AndroidElement> AppiumDriver { get; private set; }
+        private static AppiumDriver<AndroidElement> _appiumDriver;
+        private static IWebDriver _webDriver;
 
         /// <summary>
         /// See Wiki to set up the desired capabilities.
@@ -32,11 +29,11 @@ namespace Factory.SetUp
         /// See Wiki to see the supported android emulator devices.
         /// <seealso cref="https://wiki.saucelabs.com/display/DOCS/Supported+Android+Emulators"/>
         /// </summary>
-        public static AppiumDriver<AndroidElement> SetUpAppiumDriver()
+        public AppiumDriver<AndroidElement> SetUpAndroidWebDriver()
         {
-            if (AppiumDriver != null)
+            if (_appiumDriver != null)
             {
-                return AppiumDriver;
+                return _appiumDriver;
             }
 
             // Parameter to set saucelabs dashboard configuration in order to add the current scenario and if fails or not the test
@@ -48,27 +45,27 @@ namespace Factory.SetUp
             // See Appium Capabilities wiki.
             var capabilities = new DesiredCapabilities();
             capabilities.SetCapability("platformName", "Android");
-            capabilities.SetCapability("platformVersion", "7");
+            capabilities.SetCapability("platformVersion", "6");
             capabilities.SetCapability("fastReset", true);
             capabilities.SetCapability("app", appFullPath);
 
             // To see the device name with the cmd console check adb devices -l
-            capabilities.SetCapability("deviceName", "vbox86p");
+            capabilities.SetCapability("deviceName", "generic_x86");
 
-            AppiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), capabilities, TimeSpan.FromSeconds(60));
+            _appiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), capabilities, TimeSpan.FromSeconds(60));
 
-            return AppiumDriver;
+            return _appiumDriver;
         }
 
         /// <summary>
         /// See Wiki to set up the desired capabilities.
         /// <seealso cref="https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests"/>
         /// </summary>
-        public static AppiumDriver<AndroidElement> SetUpAppiumLocalDriver()
+        public AppiumDriver<AndroidElement> SetUpAndroidDeviceDriver()
         {
-            if (AppiumDriver != null)
+            if (_appiumDriver != null)
             {
-                return AppiumDriver;
+                return _appiumDriver;
             }
 
             // Parameter to set saucelabs dashboard configuration in order to add the current scenario and if fails or not the test
@@ -87,9 +84,9 @@ namespace Factory.SetUp
             // To see the device name with the cmd console check adb devices -l
             capabilities.SetCapability("deviceName", "trlte");
 
-            AppiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), capabilities, TimeSpan.FromSeconds(600));
+            _appiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), capabilities, TimeSpan.FromSeconds(600));
 
-            return AppiumDriver;
+            return _appiumDriver;
         }
 
         /// <summary>
@@ -101,11 +98,11 @@ namespace Factory.SetUp
         /// See Wiki to see the supported android emulator devices.
         /// <seealso cref="https://wiki.saucelabs.com/display/DOCS/Supported+Android+Emulators"/>
         /// </summary>
-        public static AppiumDriver<AndroidElement> SetUpAppiumSauceLabsDriver()
+        public AppiumDriver<AndroidElement> SetUpAndroidSauceLabsDriver()
         {
-            if (AppiumDriver != null)
+            if (_appiumDriver != null)
             {
-                return AppiumDriver;
+                return _appiumDriver;
             }
 
             // Parameter to set saucelabs dashboard configuration in order to add the current scenario and if fails or not the test
@@ -120,32 +117,32 @@ namespace Factory.SetUp
             capabilities.SetCapability("accessKey", "e2cb260f-7805-4685-828e-af1065b61447");
             capabilities.SetCapability("name", Configuration.CurrentScenario);
 
-            AppiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), capabilities, TimeSpan.FromSeconds(600));
+            _appiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), capabilities, TimeSpan.FromSeconds(600));
 
-            return AppiumDriver;
+            return _appiumDriver;
         }
 
         /// <summary>
         /// Closes the android driver.
         /// </summary>
-        public static void CloseAndroidDriver()
+        public void CloseAndroidDriver()
         {
             if (Configuration.IsSaucelabsConfiguration)
             {
-                ((IJavaScriptExecutor)AppiumDriver).ExecuteScript("sauce:job-result=" + (Configuration.IsPass ? "passed" : "failed"));
+                ((IJavaScriptExecutor)_appiumDriver).ExecuteScript("sauce:job-result=" + (Configuration.IsPass ? "passed" : "failed"));
             }
 
-            AppiumDriver?.Dispose();
-            AppiumDriver = null;
+            _appiumDriver?.Dispose();
+            _appiumDriver = null;
         }
 
         /// <summary>
         /// Makes the screenshot.
         /// </summary>
         /// <param name="scenario">The scenario.</param>
-        public static void MakeScreenshot(string scenario)
+        public void MakeScreenshot(string scenario)
         {
-            var screenshot = ((ITakesScreenshot) AppiumDriver).GetScreenshot();
+            var screenshot = ((ITakesScreenshot) _appiumDriver).GetScreenshot();
             var dateTime = $"{DateTime.Now.ToString("d-M-yyyy HH-mm-ss", CultureInfo.InvariantCulture)}_{scenario}.jpeg";
             screenshot.SaveAsFile(dateTime, ImageFormat.Jpeg);
         }

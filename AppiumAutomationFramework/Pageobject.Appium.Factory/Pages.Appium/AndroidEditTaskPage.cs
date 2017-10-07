@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Factory.SetUp;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using Pageobject.Appium.Factory.Base.Appium;
 using Pageobject.Factory.Contracts.Pages.Contracts;
@@ -37,7 +38,8 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <summary>
         /// Initializes a new instance of the <see cref="AndroidEditTaskPage"/> class.
         /// </summary>
-        public AndroidEditTaskPage()
+        public AndroidEditTaskPage(ISetUpWebDriver setUpWebDriver)
+            : base(setUpWebDriver)
         {
             PageFactory.InitElements(this.AndroidDriver, this);
         }
