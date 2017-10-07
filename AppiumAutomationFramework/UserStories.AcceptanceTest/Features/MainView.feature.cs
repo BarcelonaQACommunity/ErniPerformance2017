@@ -158,10 +158,10 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 32
  testRunner.When("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
-                    "he content\', and the color \'Blue\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+                    "he content\', and the color \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 33
  testRunner.And("The user creates a task with the title \'Buy pizzas\', the content \'Call and buy pi" +
-                    "zzas\', and the color \'Yellow\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "zzas\', and the color \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
  testRunner.And("The user creates a task with the title \'Feedback\', the content \'Ask for feedback\'" +
                     ", and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -213,10 +213,10 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 46
  testRunner.And("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
-                    "he content\', and the color \'Blue\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "he content\', and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 47
  testRunner.And("The user creates a task with the title \'Buy pizzas\', the content \'Call and buy pi" +
-                    "zzas\', and the color \'Yellow\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "zzas\', and the color \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
  testRunner.And("The user creates a task with the title \'Feedback\', the content \'Ask for feedback\'" +
                     ", and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

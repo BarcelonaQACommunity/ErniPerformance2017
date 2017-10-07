@@ -31,6 +31,7 @@ namespace Pageobject.Web.Factory
         public WebEditTaskPage(ISetUpWebDriver setUpWebDriver) 
             : base(setUpWebDriver)
         {
+            PageFactory.InitElements(WebDriver, this);
         }
 
         /// <summary>

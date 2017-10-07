@@ -80,7 +80,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
  testRunner.When("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
-                    "he content\', and the color \'Blue\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+                    "he content\', and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
  testRunner.And("The user goes to the task \'1\' edit view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12

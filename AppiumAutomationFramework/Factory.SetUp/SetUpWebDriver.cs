@@ -44,6 +44,8 @@ namespace Factory.SetUp
             _webDriver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30));
             _webDriver.Manage().Timeouts().SetScriptTimeout(TimeSpan.FromSeconds(30));
 
+            _webDriver.Manage().Window.Maximize();
+
             _webDriver.Navigate().GoToUrl("http://qaperformance.azurewebsites.net");
 
             return _webDriver;

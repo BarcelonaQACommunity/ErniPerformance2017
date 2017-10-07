@@ -29,8 +29,8 @@ Scenario Outline: Main View - When the user creates a task the main view have on
 @Owner: Juan Serna
 Scenario Outline: Main View - When the user creates three tasks and the main view have three tasks
 	Given The application is running with the '<Configuration>' configuration
-	When The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'Blue'
-	And The user creates a task with the title 'Buy pizzas', the content 'Call and buy pizzas', and the color 'Yellow'
+	When The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'White'
+	And The user creates a task with the title 'Buy pizzas', the content 'Call and buy pizzas', and the color 'White'
 	And The user creates a task with the title 'Feedback', the content 'Ask for feedback', and the color 'Red'
 	Then The application has '3' task created
 
@@ -43,8 +43,8 @@ Scenario Outline: Main View - When the user creates three tasks and the main vie
 @Owner: Juan Serna
 Scenario Outline: Main View - The user removes a task and check that the task has been removed
 	Given The application is running with the '<Configuration>' configuration
-	And The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'Blue'
-	And The user creates a task with the title 'Buy pizzas', the content 'Call and buy pizzas', and the color 'Yellow'
+	And The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'Red'
+	And The user creates a task with the title 'Buy pizzas', the content 'Call and buy pizzas', and the color 'White'
 	And The user creates a task with the title 'Feedback', the content 'Ask for feedback', and the color 'Red'
 	When The user goes to the task '2' edit view
 	And The user removes the task
