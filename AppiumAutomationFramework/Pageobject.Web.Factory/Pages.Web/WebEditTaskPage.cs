@@ -55,9 +55,9 @@ namespace Pageobject.Web.Factory
         /// <summary>
         /// Removes the task.
         /// </summary>
-        public void RemoveTask()
+        public void RemoveTask(string task)
         {
-            // TODO
+            WebDriver.FindElement(By.XPath($"//div[@id='item-{int.Parse(task)}']/div/a[2]")).Click();
         }
     }
 }

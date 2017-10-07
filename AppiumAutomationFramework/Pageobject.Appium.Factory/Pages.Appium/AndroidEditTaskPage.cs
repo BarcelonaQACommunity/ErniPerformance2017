@@ -65,7 +65,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <summary>
         /// Removes the task.
         /// </summary>
-        public void RemoveTask()
+        public void RemoveTask(string task)
         {
             _removeButton.Click();
         }

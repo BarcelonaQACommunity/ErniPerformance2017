@@ -118,7 +118,7 @@ this.ScenarioSetup(scenarioInfo);
                 "Serna"}, SourceLine=15)]
         public virtual void AddTaskView_CheckTheValuesFromTheTask_Variant2()
         {
-            this.AddTaskView_CheckTheValuesFromTheTask("Web", "Title 3", "This is a content 3", "White", ((string[])(null)));
+            this.AddTaskView_CheckTheValuesFromTheTask("Web", "Title 3", "This is a content 3", "Yellow", ((string[])(null)));
 #line hidden
         }
         
@@ -140,7 +140,7 @@ this.ScenarioSetup(scenarioInfo);
                 "Serna"}, SourceLine=15)]
         public virtual void AddTaskView_CheckTheValuesFromTheTask_Variant4()
         {
-            this.AddTaskView_CheckTheValuesFromTheTask("Android", "Title 2", "This is a content 2", "White", ((string[])(null)));
+            this.AddTaskView_CheckTheValuesFromTheTask("Android", "Title 2", "This is a content 2", "Blue", ((string[])(null)));
 #line hidden
         }
         

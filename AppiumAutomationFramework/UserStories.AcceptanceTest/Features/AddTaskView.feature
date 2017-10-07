@@ -15,7 +15,7 @@ Scenario Outline: Add Task View - Check the values from the task
 	| Configuration | Title   | Content             | Color |
 	| Web           | Title 1 | This is a content 1 | Red   |
 	| Web           | Title 2 | This is a content 2 | White |
-	| Web           | Title 3 | This is a content 3 | White |
+	| Web           | Title 3 | This is a content 3 | Yellow |
 	| Android       | Title 1 | This is a content 1 | Red   |
-	| Android       | Title 2 | This is a content 2 | White |
+	| Android       | Title 2 | This is a content 2 | Blue |
 	| Android       | Title 3 | This is a content 3 | White |

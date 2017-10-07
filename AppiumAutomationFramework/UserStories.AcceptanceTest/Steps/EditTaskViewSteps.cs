@@ -36,10 +36,15 @@ namespace UserStories.AcceptanceTest.Steps
         /// <summary>
         /// The user removes the task.
         /// </summary>
-        [When(@"The user removes the task")]
-        public void TheUserRemovesTheTask()
+        [When(@"The user removes the task '(.*)'")]
+        public void TheUserRemovesTheTask(string task)
         {
-            _editTaskViewPage.RemoveTask();
+            if (Configuration.CurrentConfiguration == Configuration.DriverConfiguration.Android)
+            {
+                When($"The user goes to the task '{task}' edit view");
+            }
+
+            _editTaskViewPage.RemoveTask(task);
         }
 
         /// <summary>

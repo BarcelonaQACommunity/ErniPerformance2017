@@ -5,10 +5,15 @@
 
 @ID:83491912-EE62-4204-B7B3-9F2CD15B8D90
 @Owner: Juan Serna
-Scenario: Main View - With an empty view the user can see a motivational phrase
-	Given The application is running with the 'Default' configuration
+Scenario Outline: Main View - With an empty view the user can see a motivational phrase
+	Given The application is running with the '<Configuration>' configuration
 	When The application does not have any tasks
 	Then The user sees a proverb
+
+	Examples: 
+	| Configuration |
+	| Web           |
+	| Android       |
 
 @ID:079E0D72-2753-4016-ADE3-7C27021D8AE6
 @Owner: Juan Serna
@@ -31,7 +36,7 @@ Scenario Outline: Main View - When the user creates three tasks and the main vie
 	Given The application is running with the '<Configuration>' configuration
 	When The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'White'
 	And The user creates a task with the title 'Buy pizzas', the content 'Call and buy pizzas', and the color 'White'
-	And The user creates a task with the title 'Feedback', the content 'Ask for feedback', and the color 'Red'
+	And The user creates a task with the title 'Feedback', the content 'Ask for feedback', and the color 'Yellow'
 	Then The application has '3' task created
 
 	Examples: 
@@ -45,9 +50,8 @@ Scenario Outline: Main View - The user removes a task and check that the task ha
 	Given The application is running with the '<Configuration>' configuration
 	And The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'Red'
 	And The user creates a task with the title 'Buy pizzas', the content 'Call and buy pizzas', and the color 'White'
-	And The user creates a task with the title 'Feedback', the content 'Ask for feedback', and the color 'Red'
-	When The user goes to the task '2' edit view
-	And The user removes the task
+	And The user creates a task with the title 'Feedback', the content 'Ask for feedback', and the color 'Blue'
+	When The user removes the task '2'
 	Then The application has '2' task created
 
 	Examples: 

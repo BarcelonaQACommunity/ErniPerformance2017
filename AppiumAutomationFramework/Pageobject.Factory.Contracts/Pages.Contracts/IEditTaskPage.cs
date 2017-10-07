@@ -21,6 +21,6 @@ namespace Pageobject.Factory.Contracts.Pages.Contracts
         /// <summary>
         /// Removes the task.
         /// </summary>
-        void RemoveTask();
+        void RemoveTask(string task);
     }
 }
