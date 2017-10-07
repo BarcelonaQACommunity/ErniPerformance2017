@@ -17,7 +17,7 @@ namespace UserStories.AcceptanceTest.Steps
     public class MainViewSteps : BaseStep
     {
         // Main View page.
-        private readonly IMainViewPage _mainViewPage;
+        private IMainViewPage _mainViewPage;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainViewSteps"/> class.
@@ -25,7 +25,6 @@ namespace UserStories.AcceptanceTest.Steps
         public MainViewSteps()
         {
             Configuration.CurrentScenario = ScenarioContext.Current.ScenarioInfo.Title;
-            this._mainViewPage = AppContainer.AndroidContainer.Resolve<IMainViewPage>();
         }
 
         /// <summary>
@@ -35,7 +34,18 @@ namespace UserStories.AcceptanceTest.Steps
         [Given(@"The application is running with the '(.*)' configuration")]
         public void TheApplicationIsRunningWithTheDefaultConfiguration(string configuration)
         {
-            // TODO
+            if (configuration == "Web")
+            {
+                Configuration.CurrentConfiguration = Configuration.DriverConfiguration.Web;
+
+                _mainViewPage = AppContainer.WebContainer.Resolve<IMainViewPage>();
+
+            }
+            else
+            {
+                Configuration.CurrentConfiguration = Configuration.DriverConfiguration.Android;
+                _mainViewPage = AppContainer.AndroidContainer.Resolve<IMainViewPage>();
+            }
         }
 
         /// <summary>
@@ -45,7 +55,7 @@ namespace UserStories.AcceptanceTest.Steps
         [When(@"The user goes to the add task view")]
         public void TheUserGoesToTheAddTaskView()
         {
-            this._mainViewPage.AddNewTask();
+            _mainViewPage.AddNewTask();
         }
 
         /// <summary>
@@ -55,7 +65,7 @@ namespace UserStories.AcceptanceTest.Steps
         [When(@"The application does not have any tasks")]
         public void TheApplicationDoesNotHaveAnyTasks()
         {
-            Assert.AreEqual(0, this._mainViewPage.TotalTasks);
+            Assert.AreEqual(0, _mainViewPage.TotalTasks);
         }
 
         /// <summary>
@@ -65,7 +75,7 @@ namespace UserStories.AcceptanceTest.Steps
         [When(@"The user goes to the task '(.*)' edit view")]
         public void TheUserGoesToTheTaskEditView(int id)
         {
-            this._mainViewPage.SelectTask(id);
+            _mainViewPage.SelectTask(id);
         }
 
         /// <summary>
@@ -74,7 +84,7 @@ namespace UserStories.AcceptanceTest.Steps
         [When(@"The user goes to the group list")]
         public void TheUserGoesToTheGroupList()
         {
-            this._mainViewPage.GoToTheGroupList();
+            _mainViewPage.GoToTheGroupList();
         }
 
         /// <summary>
@@ -83,7 +93,7 @@ namespace UserStories.AcceptanceTest.Steps
         [Then(@"The user sees a proverb")]
         public void TheUserSeesAProverb()
         {
-            Assert.IsFalse(this._mainViewPage.Proverb.IsNullOrEmpty());
+            Assert.IsFalse(_mainViewPage.Proverb.IsNullOrEmpty());
         }
 
         /// <summary>
@@ -93,7 +103,7 @@ namespace UserStories.AcceptanceTest.Steps
         [Then(@"The application has '(.*)' task created")]
         public void TheApplicationHaveTaskCreated(int total)
         {
-            Assert.AreEqual(total, this._mainViewPage.TotalTasks);
+            Assert.AreEqual(total, _mainViewPage.TotalTasks);
         }
 
         /// <summary>
@@ -110,10 +120,10 @@ namespace UserStories.AcceptanceTest.Steps
                 Configuration.IsPass = false;
 
                 // Take a screenshot if the test fails.
-                this._mainViewPage.TakeScreenshot(ScenarioContext.Current.ScenarioInfo.Title);
+                _mainViewPage.TakeScreenshot(ScenarioContext.Current.ScenarioInfo.Title);
             }
 
-            this._mainViewPage.CloseAndroidDriver();
+            _mainViewPage.CloseDriver();
         }
     }
 }

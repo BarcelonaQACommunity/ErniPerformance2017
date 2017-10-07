@@ -48,25 +48,25 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         public AndroidMainViewPage(ISetUpWebDriver setUpWebDriver)
             : base (setUpWebDriver)
         {
-            PageFactory.InitElements(this.AndroidDriver, this);
+            PageFactory.InitElements(AndroidDriver, this);
         }
 
         /// <summary>
         /// Proverb appears when the application does not have tasks.
         /// </summary>
-        public string Proverb => this._proverbText.Text;
+        public string Proverb => _proverbText.Text;
 
         /// <summary>
         /// Gets the number of tasks from the list.
         /// </summary>
-        public int TotalTasks => this._taskList?.Count ?? 0;
+        public int TotalTasks => _taskList?.Count ?? 0;
 
         /// <summary>
         /// Goes to the add task page.
         /// </summary>
         public void AddNewTask()
         {
-            this._addTaskButton.Click();
+            _addTaskButton.Click();
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         public void SelectTask(int id)
         {
             var number = id - 1;
-            this._taskList[number].Click();
+            _taskList[number].Click();
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public void GoToTheGroupList()
         {
-            this._groupButton.Click();
+            _groupButton.Click();
         }
 
         /// <summary>
@@ -93,13 +93,13 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <param name="scenarioTitle">The scenario title.</param>
         public void TakeScreenshot(string scenarioTitle)
         {
-            SetUpWebDriverFactory.MakeScreenshot(scenarioTitle);
+            SetUpWebDriverFactory.MakeAndroidScreenshot(scenarioTitle);
         }
 
         /// <summary>
         /// Closes the android driver.
         /// </summary>
-        public void CloseAndroidDriver()
+        public void CloseDriver()
         {
             SetUpWebDriverFactory.CloseAndroidDriver();
         }

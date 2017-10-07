@@ -63,6 +63,10 @@
       <Project>{73dc9447-c73a-4cd9-aa50-762cf2b12b85}</Project>
       <Name>Pageobject.Factory.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Pageobject.Web.Factory\Pageobject.Web.Factory.csproj">
+      <Project>{317b1c22-f084-4c61-82ae-a72afc5141d8}</Project>
+      <Name>Pageobject.Web.Factory</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

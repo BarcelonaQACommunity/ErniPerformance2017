@@ -7,6 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Chrome;
 
 namespace Factory.SetUp
 {
@@ -17,9 +18,36 @@ namespace Factory.SetUp
     public class SetUpWebDriver : ISetUpWebDriver
     {
         private const string AndroidApplicationPath = @"\Factory.SetUp\binaries\mylist.apk";
+        private const string ChromeDriverPath = @"\Factory.SetUp\binaries\";
 
         private static AppiumDriver<AndroidElement> _appiumDriver;
         private static IWebDriver _webDriver;
+
+        /// <summary>
+        /// Sets up web web driver.
+        /// </summary>
+        /// <returns></returns>
+        public IWebDriver SetUpWebWebDriver()
+        {
+            if (_webDriver != null)
+            {
+                return _webDriver;
+            }
+
+            // Parameter to set saucelabs dashboard configuration in order to add the current scenario and if fails or not the test
+            Configuration.IsSaucelabsConfiguration = false;
+
+            var chromeFullPath = Directory.GetParent(Directory.GetCurrentDirectory()) + ChromeDriverPath;
+
+            _webDriver = new ChromeDriver(ChromeDriverService.CreateDefaultService(chromeFullPath), new ChromeOptions(), TimeSpan.FromSeconds(30));
+            _webDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
+            _webDriver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30));
+            _webDriver.Manage().Timeouts().SetScriptTimeout(TimeSpan.FromSeconds(30));
+
+            _webDriver.Navigate().GoToUrl("http://qaperformance.azurewebsites.net");
+
+            return _webDriver;
+        }
 
         /// <summary>
         /// See Wiki to set up the desired capabilities.
@@ -137,10 +165,35 @@ namespace Factory.SetUp
         }
 
         /// <summary>
+        /// Closes the web driver.
+        /// </summary>
+        public void CloseWebDriver()
+        {
+            if (Configuration.IsSaucelabsConfiguration)
+            {
+                ((IJavaScriptExecutor)_appiumDriver).ExecuteScript("sauce:job-result=" + (Configuration.IsPass ? "passed" : "failed"));
+            }
+
+            _webDriver?.Dispose();
+            _webDriver = null;
+        }
+
+        /// <summary>
+        /// Makes the web screenshot.
+        /// </summary>
+        /// <param name="scenario">The scenario.</param>
+        public void MakeWebScreenshot(string scenario)
+        {
+            var screenshot = ((ITakesScreenshot)_webDriver).GetScreenshot();
+            var dateTime = $"{DateTime.Now.ToString("d-M-yyyy HH-mm-ss", CultureInfo.InvariantCulture)}_{scenario}.jpeg";
+            screenshot.SaveAsFile(dateTime, ImageFormat.Jpeg);
+        }
+
+        /// <summary>
         /// Makes the screenshot.
         /// </summary>
         /// <param name="scenario">The scenario.</param>
-        public void MakeScreenshot(string scenario)
+        public void MakeAndroidScreenshot(string scenario)
         {
             var screenshot = ((ITakesScreenshot) _appiumDriver).GetScreenshot();
             var dateTime = $"{DateTime.Now.ToString("d-M-yyyy HH-mm-ss", CultureInfo.InvariantCulture)}_{scenario}.jpeg";

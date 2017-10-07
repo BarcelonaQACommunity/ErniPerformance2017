@@ -63,24 +63,23 @@ namespace UserStories.AcceptanceTest.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("New Group View - Creates a new group", new string[] {
-                "ID:0F73D6D1-0428-4918-9592-BB4829DB4556",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=8)]
-        [TechTalk.SpecRun.IgnoreAttribute()]
-        public virtual void NewGroupView_CreatesANewGroup()
+        public virtual void NewGroupView_CreatesANewGroup(string configuration, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("New Group View - Creates a new group", new string[] {
-                        "ID:0F73D6D1-0428-4918-9592-BB4829DB4556",
-                        "Owner:",
-                        "Juan",
-                        "Serna",
-                        "ignore"});
+            string[] @__tags = new string[] {
+                    "ID:0F73D6D1-0428-4918-9592-BB4829DB4556",
+                    "Owner:",
+                    "Juan",
+                    "Serna",
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("New Group View - Creates a new group", @__tags);
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line 10
- testRunner.Given("The application is running with the \'Default\' configuration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
  testRunner.When("The user goes to the group list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
@@ -89,6 +88,30 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Then("The group \'New Group\' is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("New Group View - Creates a new group, Web", new string[] {
+                "ID:0F73D6D1-0428-4918-9592-BB4829DB4556",
+                "Owner:",
+                "Juan",
+                "Serna"}, SourceLine=16)]
+        [TechTalk.SpecRun.IgnoreAttribute()]
+        public virtual void NewGroupView_CreatesANewGroup_Web()
+        {
+            this.NewGroupView_CreatesANewGroup("Web", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("New Group View - Creates a new group, Android", new string[] {
+                "ID:0F73D6D1-0428-4918-9592-BB4829DB4556",
+                "Owner:",
+                "Juan",
+                "Serna"}, SourceLine=16)]
+        [TechTalk.SpecRun.IgnoreAttribute()]
+        public virtual void NewGroupView_CreatesANewGroup_Android()
+        {
+            this.NewGroupView_CreatesANewGroup("Android", ((string[])(null)));
+#line hidden
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]

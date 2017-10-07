@@ -17,6 +17,14 @@ namespace CrossLayer.Configuration
         public static string CurrentScenario { get; set; }
 
         /// <summary>
+        /// Gets or sets the configuration.
+        /// </summary>
+        /// <value>
+        /// The configuration.
+        /// </value>
+        public static DriverConfiguration CurrentConfiguration { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether this instance is saucelabs configuration.
         /// </summary>
         public static bool IsSaucelabsConfiguration { get; set; }
@@ -25,5 +33,11 @@ namespace CrossLayer.Configuration
         /// Gets or sets a value indicating whether this instance is pass.
         /// </summary>
         public static bool IsPass { get; set; }
+
+        public enum DriverConfiguration
+        {
+            Android,
+            Web
+        }
     }
 }

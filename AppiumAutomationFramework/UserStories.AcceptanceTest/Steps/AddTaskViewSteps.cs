@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CrossLayer.Configuration;
 using CrossLayer.DI.Module;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pageobject.Factory.Contracts.Pages.Contracts;
@@ -22,7 +23,14 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public AddTaskViewSteps()
         {
-            this._addTaskViewPage = AppContainer.AndroidContainer.Resolve<IAddTaskPage>();
+            if (Configuration.CurrentConfiguration == Configuration.DriverConfiguration.Android)
+            {
+                _addTaskViewPage = AppContainer.AndroidContainer.Resolve<IAddTaskPage>();
+            }
+            else
+            {
+                _addTaskViewPage = AppContainer.WebContainer.Resolve<IAddTaskPage>();
+            }
         }
 
         /// <summary>
@@ -35,13 +43,13 @@ namespace UserStories.AcceptanceTest.Steps
         public void TheUserSetsTheTaskWithTheTitleTheContentAndTheColor(string title, string content, string color)
         {
             // Title
-            this._addTaskViewPage.TaskTitle = title;
+            _addTaskViewPage.TaskTitle = title;
 
             // Content
-            this._addTaskViewPage.TaskContent = content;
+            _addTaskViewPage.TaskContent = content;
 
             // Color
-            this._addTaskViewPage.SetTaskColor(color);
+            _addTaskViewPage.SetTaskColor(color);
         }
 
         /// <summary>
@@ -50,16 +58,16 @@ namespace UserStories.AcceptanceTest.Steps
         [When(@"The user creates the task")]
         public void TheUserCreatesTheTask()
         {
-            this._addTaskViewPage.CreateTask();
+            _addTaskViewPage.CreateTask();
         }
 
         [Given(@"The user creates a task with the title '(.*)', the content '(.*)', and the color '(.*)'")]
         [When(@"The user creates a task with the title '(.*)', the content '(.*)', and the color '(.*)'")]
         public void TheUserCreatesATaskWithTheTitleTheContentAndTheColor(string title, string content, string color)
         {
-            this.When("The user goes to the add task view");
-            this.When($"The user sets the task with the title '{title}', the content '{content}', and the color '{color}'");
-            this.When("The user creates the task");
+            When("The user goes to the add task view");
+            When($"The user sets the task with the title '{title}', the content '{content}', and the color '{color}'");
+            When("The user creates the task");
         }
 
         /// <summary>
@@ -71,10 +79,10 @@ namespace UserStories.AcceptanceTest.Steps
         public void TheUserCheckThatTheTitleAndTheContentFromTheTaskAreTheCorrectValues(string title, string content)
         {
             // Title
-            Assert.AreEqual(title, this._addTaskViewPage.TaskTitle);
+            Assert.AreEqual(title, _addTaskViewPage.TaskTitle);
 
             // Content
-            Assert.AreEqual(content, this._addTaskViewPage.TaskContent);
+            Assert.AreEqual(content, _addTaskViewPage.TaskContent);
         }
     }
 }

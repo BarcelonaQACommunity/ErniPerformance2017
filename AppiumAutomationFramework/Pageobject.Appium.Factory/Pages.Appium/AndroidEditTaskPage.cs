@@ -41,7 +41,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         public AndroidEditTaskPage(ISetUpWebDriver setUpWebDriver)
             : base(setUpWebDriver)
         {
-            PageFactory.InitElements(this.AndroidDriver, this);
+            PageFactory.InitElements(AndroidDriver, this);
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public string Title
         {
-            get { return this._taskTitle.Text; }
-            set { this._taskTitle.SendKeys(value); }
+            get { return _taskTitle.Text; }
+            set { _taskTitle.SendKeys(value); }
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public string Content
         {
-            get { return this._taskContent.Text; }
-            set { this._taskContent.SendKeys(value); }
+            get { return _taskContent.Text; }
+            set { _taskContent.SendKeys(value); }
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public void RemoveTask()
         {
-            this._removeButton.Click();
+            _removeButton.Click();
         }
     }
 }

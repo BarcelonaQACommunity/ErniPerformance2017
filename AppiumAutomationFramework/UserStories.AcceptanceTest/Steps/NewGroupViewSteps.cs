@@ -9,6 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pageobject.Factory.Contracts.Pages.Contracts;
 using TechTalk.SpecFlow;
 using UserStories.AcceptanceTest.Steps.Base;
+using CrossLayer.Configuration;
 
 namespace UserStories.AcceptanceTest.Steps
 {
@@ -27,14 +28,21 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public NewGroupViewSteps()
         {
-            this._groupPage = AppContainer.AndroidContainer.Resolve<INewGroupPage>();
+            if (Configuration.CurrentConfiguration == Configuration.DriverConfiguration.Android)
+            {
+                _groupPage = AppContainer.AndroidContainer.Resolve<INewGroupPage>();
+            }
+            else
+            {
+                _groupPage = AppContainer.WebContainer.Resolve<INewGroupPage>();
+            }
         }
 
         [Given("The user selects the group '(.*)'")]
         [When("The user selects the group '(.*)'")]
         public void TheUserSelectsTheGroup(string groupName)
         {
-            this._groupPage.SelectsGroup(groupName);
+            _groupPage.SelectsGroup(groupName);
         }
 
         /// <summary>
@@ -44,7 +52,7 @@ namespace UserStories.AcceptanceTest.Steps
         [When("The user creates the group '(.*)'")]
         public void TheUserCreatesTheGroup(string groupName)
         {
-            this._groupPage.CreatesNewGroup(groupName);
+            _groupPage.CreatesNewGroup(groupName);
         }
 
         /// <summary>
@@ -54,7 +62,7 @@ namespace UserStories.AcceptanceTest.Steps
         [Then("The group '(.*)' is created")]
         public void TheGroupIsCreated(string groupName)
         {
-            Assert.IsTrue(this._groupPage.IsGroupCreated(groupName), $"The group {groupName} does not exist");  
+            Assert.IsTrue(_groupPage.IsGroupCreated(groupName), $"The group {groupName} does not exist");  
         }
     }
 }

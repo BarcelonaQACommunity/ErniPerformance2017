@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Appium;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 
 namespace Factory.SetUp
@@ -27,6 +28,23 @@ namespace Factory.SetUp
         AppiumDriver<AndroidElement> SetUpAndroidSauceLabsDriver();
 
         /// <summary>
+        /// Sets up web web driver.
+        /// </summary>
+        /// <returns></returns>
+        IWebDriver SetUpWebWebDriver();
+
+        /// <summary>
+        /// Makes the web screenshot.
+        /// </summary>
+        /// <param name="scenario">The scenario.</param>
+        void MakeWebScreenshot(string scenario);
+
+        /// <summary>
+        /// Closes the web driver.
+        /// </summary>
+        void CloseWebDriver();
+
+        /// <summary>
         /// Closes the android driver.
         /// </summary>
         void CloseAndroidDriver();
@@ -35,6 +53,6 @@ namespace Factory.SetUp
         /// Makes the screenshot.
         /// </summary>
         /// <param name="scenario">The scenario.</param>
-        void MakeScreenshot(string scenario);
+        void MakeAndroidScreenshot(string scenario);
     }
 }

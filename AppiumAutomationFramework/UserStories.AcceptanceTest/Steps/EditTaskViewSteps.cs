@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CrossLayer.Configuration;
 using CrossLayer.DI.Module;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pageobject.Factory.Contracts.Pages.Contracts;
@@ -22,7 +23,14 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public EditTaskViewSteps()
         {
-            this._editTaskViewPage = AppContainer.AndroidContainer.Resolve<IEditTaskPage>();
+            if (Configuration.CurrentConfiguration == Configuration.DriverConfiguration.Android)
+            {
+                _editTaskViewPage = AppContainer.AndroidContainer.Resolve<IEditTaskPage>();
+            }
+            else
+            {
+                _editTaskViewPage = AppContainer.WebContainer.Resolve<IEditTaskPage>();
+            }
         }
 
         /// <summary>
@@ -31,7 +39,7 @@ namespace UserStories.AcceptanceTest.Steps
         [When(@"The user removes the task")]
         public void TheUserRemovesTheTask()
         {
-            this._editTaskViewPage.RemoveTask();
+            _editTaskViewPage.RemoveTask();
         }
 
         /// <summary>
@@ -42,8 +50,8 @@ namespace UserStories.AcceptanceTest.Steps
         [Then(@"The task has the title '(.*)' and the content '(.*)'")]
         public void TheTaskHasTheTitleAndTheContent(string title, string content)
         {
-            Assert.AreEqual(title, this._editTaskViewPage.Title);
-            Assert.AreEqual(content, this._editTaskViewPage.Content);
+            Assert.AreEqual(title, _editTaskViewPage.Title);
+            Assert.AreEqual(content, _editTaskViewPage.Content);
         }
     }
 }

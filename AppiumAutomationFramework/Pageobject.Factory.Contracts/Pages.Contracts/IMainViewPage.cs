@@ -38,7 +38,7 @@ namespace Pageobject.Factory.Contracts.Pages.Contracts
         /// <summary>
         /// Closes the android driver.
         /// </summary>
-        void CloseAndroidDriver();
+        void CloseDriver();
 
         /// <summary>
         /// Goes to the group list.

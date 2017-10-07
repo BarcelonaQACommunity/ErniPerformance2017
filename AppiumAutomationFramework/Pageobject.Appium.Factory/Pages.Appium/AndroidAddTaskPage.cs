@@ -53,7 +53,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         public AndroidAddTaskPage(ISetUpWebDriver setUpWebDriver)
             : base (setUpWebDriver)
         {
-            PageFactory.InitElements(this.AndroidDriver, this);
+            PageFactory.InitElements(AndroidDriver, this);
         }
 
         /// <summary>
@@ -61,8 +61,8 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public string TaskTitle
         {
-            get { return this._titleTask.Text; }
-            set { this._titleTask.SendKeys(value);}
+            get { return _titleTask.Text; }
+            set { _titleTask.SendKeys(value);}
         }
 
         /// <summary>
@@ -70,8 +70,8 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public string TaskContent
         {
-            get { return this._contentTask.Text; }
-            set { this._contentTask.SendKeys(value);}
+            get { return _contentTask.Text; }
+            set { _contentTask.SendKeys(value);}
         }
 
         /// <summary>
@@ -84,35 +84,35 @@ namespace Pageobject.Appium.Factory.Pages.Appium
             switch (color)
             {
                 case "Blue":
-                    this._colorPicker[0].Click();
+                    _colorPicker[0].Click();
                     break;
 
                 case "Red":
-                    this._colorPicker[1].Click();
+                    _colorPicker[1].Click();
                     break;
 
                 case "Yellow":
-                    this._colorPicker[2].Click();
+                    _colorPicker[2].Click();
                     break;
 
                 case "Green":
-                    this._colorPicker[3].Click();
+                    _colorPicker[3].Click();
                     break;
 
                 case "Pink":
-                    this._colorPicker[4].Click();
+                    _colorPicker[4].Click();
                     break;
 
                 case "Grey":
-                    this._colorPicker[5].Click();
+                    _colorPicker[5].Click();
                     break;
 
                 case "Brown":
-                    this._colorPicker[6].Click();
+                    _colorPicker[6].Click();
                     break;
 
                 case "White":
-                    this._colorPicker[7].Click();
+                    _colorPicker[7].Click();
                     break;
 
                 default:
@@ -125,7 +125,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public void CreateTask()
         {
-            this._createTaskButton.Click();
+            _createTaskButton.Click();
         }
     }
 }

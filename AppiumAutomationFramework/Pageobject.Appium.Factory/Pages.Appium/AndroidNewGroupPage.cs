@@ -31,7 +31,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         public AndroidNewGroupPage(ISetUpWebDriver setUpWebDriver)
             : base(setUpWebDriver)
         {
-            PageFactory.InitElements(this.AndroidDriver, this);
+            PageFactory.InitElements(AndroidDriver, this);
         }
 
         /// <summary>

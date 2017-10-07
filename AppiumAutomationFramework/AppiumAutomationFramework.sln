@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Page Object", "1 - Page Object", "{D9CF6DAB-82AF-4F6E-BF5C-F3664BFDDDD7}"
 EndProject
@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1 - Contracts", "1.1 - Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.2 - Appium WebDriver", "1.2 - Appium WebDriver", "{C256BAEC-1606-4165-9555-1B4A50C491C6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.3 - Set Up", "1.3 - Set Up", "{F7CF2980-BD6F-4A1A-890C-20639D86CE7D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.4 - Set Up", "1.4 - Set Up", "{F7CF2980-BD6F-4A1A-890C-20639D86CE7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pageobject.Appium.Factory", "Pageobject.Appium.Factory\Pageobject.Appium.Factory.csproj", "{F4FA035F-D117-4DBF-B950-0127912F2C47}"
 EndProject
@@ -26,6 +26,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pageobject.Factory.Contracts", "Pageobject.Factory.Contracts\Pageobject.Factory.Contracts.csproj", "{73DC9447-C73A-4CD9-AA50-762CF2B12B85}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossLayer.Configuration", "CrossLayer.Configuration\CrossLayer.Configuration.csproj", "{4A116779-794A-4A29-BD15-47036788F81A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.3 - Web WebDriver", "1.3 - Web WebDriver", "{B51DFF07-8FCA-4ADB-865C-BF70CEB0AE41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pageobject.Web.Factory", "Pageobject.Web.Factory\Pageobject.Web.Factory.csproj", "{317B1C22-F084-4C61-82AE-A72AFC5141D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,10 @@ Global
 		{4A116779-794A-4A29-BD15-47036788F81A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A116779-794A-4A29-BD15-47036788F81A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A116779-794A-4A29-BD15-47036788F81A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317B1C22-F084-4C61-82AE-A72AFC5141D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317B1C22-F084-4C61-82AE-A72AFC5141D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317B1C22-F084-4C61-82AE-A72AFC5141D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317B1C22-F084-4C61-82AE-A72AFC5141D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,5 +79,10 @@ Global
 		{DC4F1B8F-20D9-49D4-A2EC-5B4AE5447243} = {319960EC-669C-4774-81CE-C39FDAB50521}
 		{73DC9447-C73A-4CD9-AA50-762CF2B12B85} = {89A812EF-73C9-4CB6-B708-4B308F7DF52E}
 		{4A116779-794A-4A29-BD15-47036788F81A} = {319960EC-669C-4774-81CE-C39FDAB50521}
+		{B51DFF07-8FCA-4ADB-865C-BF70CEB0AE41} = {D9CF6DAB-82AF-4F6E-BF5C-F3664BFDDDD7}
+		{317B1C22-F084-4C61-82AE-A72AFC5141D8} = {B51DFF07-8FCA-4ADB-865C-BF70CEB0AE41}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A27E4DBC-1A45-4EB8-9F2A-C9AB4CE4E5EB}
 	EndGlobalSection
 EndGlobal
