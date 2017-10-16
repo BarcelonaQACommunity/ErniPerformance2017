@@ -38,7 +38,6 @@ namespace Pageobject.Appium.Factory.Base.Appium
             {
                 AndroidDriver = setUpWebDriver.SetUpAndroidWebDriver();
             }
-            
         }
     }
 }
