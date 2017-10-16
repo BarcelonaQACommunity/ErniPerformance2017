@@ -1,4 +1,5 @@
-﻿using Factory.SetUp;
+﻿using CrossLayer.Configuration;
+using Factory.SetUp;
 using OpenQA.Selenium;
 using Pageobject.Factory.Contracts.Base.Contracts;
 
@@ -27,7 +28,15 @@ namespace Pageobject.Web.Factory.Base.Web
         public WebPageObjectBase(ISetUpWebDriver setUpWebDriver)
         {
             SetUpWebDriverFactory = setUpWebDriver;
-            WebDriver = setUpWebDriver.SetUpWebWebDriver();
+
+            if (ConfigurationDataService.Configuration.IsSauceLabs)
+            {
+                // TODO - Add saucelabs configuration.
+            }
+            else
+            {
+                WebDriver = setUpWebDriver.SetUpWebWebDriver();
+            }
         }
     }
 }

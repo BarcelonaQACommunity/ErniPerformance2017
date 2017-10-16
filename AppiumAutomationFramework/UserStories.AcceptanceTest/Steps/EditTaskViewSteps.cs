@@ -23,14 +23,7 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public EditTaskViewSteps()
         {
-            if (Configuration.CurrentConfiguration == Configuration.DriverConfiguration.Android)
-            {
-                _editTaskViewPage = AppContainer.AndroidContainer.Resolve<IEditTaskPage>();
-            }
-            else
-            {
-                _editTaskViewPage = AppContainer.WebContainer.Resolve<IEditTaskPage>();
-            }
+            _editTaskViewPage = AppContainer.Container.Resolve<IEditTaskPage>();
         }
 
         /// <summary>
@@ -39,7 +32,7 @@ namespace UserStories.AcceptanceTest.Steps
         [When(@"The user removes the task '(.*)'")]
         public void TheUserRemovesTheTask(string task)
         {
-            if (Configuration.CurrentConfiguration == Configuration.DriverConfiguration.Android)
+            if (ConfigurationDataService.Configuration.Environment == "Android")
             {
                 When($"The user goes to the task '{task}' edit view");
             }

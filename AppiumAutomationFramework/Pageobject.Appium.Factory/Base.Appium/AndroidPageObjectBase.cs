@@ -1,4 +1,5 @@
-﻿using Factory.SetUp;
+﻿using CrossLayer.Configuration;
+using Factory.SetUp;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using Pageobject.Factory.Contracts.Base.Contracts;
@@ -28,7 +29,16 @@ namespace Pageobject.Appium.Factory.Base.Appium
         public AndroidPageObjectBase(ISetUpWebDriver setUpWebDriver)
         {
             SetUpWebDriverFactory = setUpWebDriver;
-            AndroidDriver = setUpWebDriver.SetUpAndroidWebDriver();
+
+            if (ConfigurationDataService.Configuration.IsSauceLabs)
+            {
+                AndroidDriver = setUpWebDriver.SetUpAndroidSauceLabsDriver();
+            }
+            else
+            {
+                AndroidDriver = setUpWebDriver.SetUpAndroidWebDriver();
+            }
+            
         }
     }
 }

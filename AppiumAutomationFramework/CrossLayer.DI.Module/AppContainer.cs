@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CrossLayer.Configuration;
 using Factory.SetUp;
 using Pageobject.Appium.Factory.Pages.Appium;
 using Pageobject.Factory.Contracts.Pages.Contracts;
@@ -14,23 +15,21 @@ namespace CrossLayer.DI.Module
         /// <summary>
         /// Android container.
         /// </summary>
-        public static IContainer AndroidContainer { get; private set; }
-
-        /// <summary>
-        /// Gets the web container.
-        /// </summary>
-        /// <value>
-        /// The web container.
-        /// </value>
-        public static IContainer WebContainer { get; private set; }
+        public static IContainer Container { get; private set; }
 
         /// <summary>
         /// Initializes the <see cref="AppContainer"/> class.
         /// </summary>
         static AppContainer()
         {
-            BuildAppAndroidContainer();
-            BuildWebContainer();
+            if (ConfigurationDataService.Configuration.Environment == "Android")
+            {
+                BuildAppAndroidContainer();
+            }
+            else
+            {
+                BuildWebContainer();
+            }
         }
 
         /// <summary>
@@ -45,7 +44,7 @@ namespace CrossLayer.DI.Module
             buildContainer.RegisterType<AndroidEditTaskPage>().As<IEditTaskPage>();
             buildContainer.RegisterType<AndroidNewGroupPage>().As<INewGroupPage>();
 
-            AndroidContainer = buildContainer.Build();
+            Container = buildContainer.Build();
         }
 
         /// <summary>
@@ -59,7 +58,7 @@ namespace CrossLayer.DI.Module
             buildContainer.RegisterType<WebAddTaskPage>().As<IAddTaskPage>();
             buildContainer.RegisterType<WebEditTaskPage>().As<IEditTaskPage>();
 
-            WebContainer = buildContainer.Build();
+            Container = buildContainer.Build();
         }
     }
 }

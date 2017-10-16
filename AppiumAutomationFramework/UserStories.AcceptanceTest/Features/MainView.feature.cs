@@ -63,215 +63,115 @@ namespace UserStories.AcceptanceTest.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void MainView_WithAnEmptyViewTheUserCanSeeAMotivationalPhrase(string configuration, string[] exampleTags)
+        [TechTalk.SpecRun.ScenarioAttribute("Main View - With an empty view the user can see a phrase", new string[] {
+                "ID:83491912-EE62-4204-B7B3-9F2CD15B8D90",
+                "Owner:",
+                "Juan",
+                "Serna"}, SourceLine=7)]
+        public virtual void MainView_WithAnEmptyViewTheUserCanSeeAPhrase()
         {
-            string[] @__tags = new string[] {
-                    "ID:83491912-EE62-4204-B7B3-9F2CD15B8D90",
-                    "Owner:",
-                    "Juan",
-                    "Serna"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Main View - With an empty view the user can see a motivational phrase", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Main View - With an empty view the user can see a phrase", new string[] {
+                        "ID:83491912-EE62-4204-B7B3-9F2CD15B8D90",
+                        "Owner:",
+                        "Juan",
+                        "Serna"});
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The application does not have any tasks", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.When("The application does not have any tasks", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
  testRunner.Then("The user sees a proverb", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Main View - With an empty view the user can see a motivational phrase, Web", new string[] {
-                "ID:83491912-EE62-4204-B7B3-9F2CD15B8D90",
+        [TechTalk.SpecRun.ScenarioAttribute("Main View - When the user creates a task the main view have one task", new string[] {
+                "ID:079E0D72-2753-4016-ADE3-7C27021D8AE6",
                 "Owner:",
                 "Juan",
-                "Serna"}, SourceLine=14)]
-        public virtual void MainView_WithAnEmptyViewTheUserCanSeeAMotivationalPhrase_Web()
+                "Serna"}, SourceLine=13)]
+        public virtual void MainView_WhenTheUserCreatesATaskTheMainViewHaveOneTask()
         {
-            this.MainView_WithAnEmptyViewTheUserCanSeeAMotivationalPhrase("Web", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Main View - With an empty view the user can see a motivational phrase, Android", new string[] {
-                "ID:83491912-EE62-4204-B7B3-9F2CD15B8D90",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=14)]
-        public virtual void MainView_WithAnEmptyViewTheUserCanSeeAMotivationalPhrase_Android()
-        {
-            this.MainView_WithAnEmptyViewTheUserCanSeeAMotivationalPhrase("Android", ((string[])(null)));
-#line hidden
-        }
-        
-        public virtual void MainView_WhenTheUserCreatesATaskTheMainViewHaveOneTask(string configuration, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "ID:079E0D72-2753-4016-ADE3-7C27021D8AE6",
-                    "Owner:",
-                    "Juan",
-                    "Serna"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Main View - When the user creates a task the main view have one task", @__tags);
-#line 20
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Main View - When the user creates a task the main view have one task", new string[] {
+                        "ID:079E0D72-2753-4016-ADE3-7C27021D8AE6",
+                        "Owner:",
+                        "Juan",
+                        "Serna"});
+#line 14
 this.ScenarioSetup(scenarioInfo);
-#line 21
- testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 22
- testRunner.And("The application does not have any tasks", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
+#line 15
+ testRunner.Given("The application does not have any tasks", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
  testRunner.When("The user goes to the add task view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 24
+#line 17
  testRunner.And("The user sets the task with the title \'Go to shop\', the content \'Buy eggs and oni" +
                     "ons\', and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 25
+#line 18
  testRunner.And("The user creates the task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 26
+#line 19
  testRunner.Then("The application has \'1\' task created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Main View - When the user creates a task the main view have one task, Web", new string[] {
-                "ID:079E0D72-2753-4016-ADE3-7C27021D8AE6",
+        [TechTalk.SpecRun.ScenarioAttribute("Main View - When the user creates three tasks and the main view have three tasks", new string[] {
+                "ID:78DD63E3-1134-4A0D-97E4-695FC1B06421",
                 "Owner:",
                 "Juan",
-                "Serna"}, SourceLine=29)]
-        public virtual void MainView_WhenTheUserCreatesATaskTheMainViewHaveOneTask_Web()
+                "Serna"}, SourceLine=22)]
+        public virtual void MainView_WhenTheUserCreatesThreeTasksAndTheMainViewHaveThreeTasks()
         {
-            this.MainView_WhenTheUserCreatesATaskTheMainViewHaveOneTask("Web", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Main View - When the user creates a task the main view have one task, Android", new string[] {
-                "ID:079E0D72-2753-4016-ADE3-7C27021D8AE6",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=29)]
-        public virtual void MainView_WhenTheUserCreatesATaskTheMainViewHaveOneTask_Android()
-        {
-            this.MainView_WhenTheUserCreatesATaskTheMainViewHaveOneTask("Android", ((string[])(null)));
-#line hidden
-        }
-        
-        public virtual void MainView_WhenTheUserCreatesThreeTasksAndTheMainViewHaveThreeTasks(string configuration, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "ID:78DD63E3-1134-4A0D-97E4-695FC1B06421",
-                    "Owner:",
-                    "Juan",
-                    "Serna"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Main View - When the user creates three tasks and the main view have three tasks", @__tags);
-#line 35
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Main View - When the user creates three tasks and the main view have three tasks", new string[] {
+                        "ID:78DD63E3-1134-4A0D-97E4-695FC1B06421",
+                        "Owner:",
+                        "Juan",
+                        "Serna"});
+#line 23
 this.ScenarioSetup(scenarioInfo);
-#line 36
- testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 37
- testRunner.When("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
-                    "he content\', and the color \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 38
+#line 24
+ testRunner.Given("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
+                    "he content\', and the color \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 25
  testRunner.And("The user creates a task with the title \'Buy pizzas\', the content \'Call and buy pi" +
                     "zzas\', and the color \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
+#line 26
  testRunner.And("The user creates a task with the title \'Feedback\', the content \'Ask for feedback\'" +
                     ", and the color \'Yellow\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
+#line 27
  testRunner.Then("The application has \'3\' task created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Main View - When the user creates three tasks and the main view have three tasks," +
-            " Web", new string[] {
-                "ID:78DD63E3-1134-4A0D-97E4-695FC1B06421",
+        [TechTalk.SpecRun.ScenarioAttribute("Main View - The user removes a task and check that the task has been removed", new string[] {
+                "ID:3F4DC055-EE69-4EFC-BAB9-FDF2E9A96A5E",
                 "Owner:",
                 "Juan",
-                "Serna"}, SourceLine=43)]
-        public virtual void MainView_WhenTheUserCreatesThreeTasksAndTheMainViewHaveThreeTasks_Web()
+                "Serna"}, SourceLine=30)]
+        public virtual void MainView_TheUserRemovesATaskAndCheckThatTheTaskHasBeenRemoved()
         {
-            this.MainView_WhenTheUserCreatesThreeTasksAndTheMainViewHaveThreeTasks("Web", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Main View - When the user creates three tasks and the main view have three tasks," +
-            " Android", new string[] {
-                "ID:78DD63E3-1134-4A0D-97E4-695FC1B06421",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=43)]
-        public virtual void MainView_WhenTheUserCreatesThreeTasksAndTheMainViewHaveThreeTasks_Android()
-        {
-            this.MainView_WhenTheUserCreatesThreeTasksAndTheMainViewHaveThreeTasks("Android", ((string[])(null)));
-#line hidden
-        }
-        
-        public virtual void MainView_TheUserRemovesATaskAndCheckThatTheTaskHasBeenRemoved(string configuration, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "ID:3F4DC055-EE69-4EFC-BAB9-FDF2E9A96A5E",
-                    "Owner:",
-                    "Juan",
-                    "Serna"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Main View - The user removes a task and check that the task has been removed", @__tags);
-#line 49
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Main View - The user removes a task and check that the task has been removed", new string[] {
+                        "ID:3F4DC055-EE69-4EFC-BAB9-FDF2E9A96A5E",
+                        "Owner:",
+                        "Juan",
+                        "Serna"});
+#line 31
 this.ScenarioSetup(scenarioInfo);
-#line 50
- testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 51
- testRunner.And("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
-                    "he content\', and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 52
+#line 32
+ testRunner.Given("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
+                    "he content\', and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
  testRunner.And("The user creates a task with the title \'Buy pizzas\', the content \'Call and buy pi" +
                     "zzas\', and the color \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 53
+#line 34
  testRunner.And("The user creates a task with the title \'Feedback\', the content \'Ask for feedback\'" +
                     ", and the color \'Blue\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 54
+#line 35
  testRunner.When("The user removes the task \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 55
+#line 36
  testRunner.Then("The application has \'2\' task created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Main View - The user removes a task and check that the task has been removed, Web" +
-            "", new string[] {
-                "ID:3F4DC055-EE69-4EFC-BAB9-FDF2E9A96A5E",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=58)]
-        public virtual void MainView_TheUserRemovesATaskAndCheckThatTheTaskHasBeenRemoved_Web()
-        {
-            this.MainView_TheUserRemovesATaskAndCheckThatTheTaskHasBeenRemoved("Web", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Main View - The user removes a task and check that the task has been removed, And" +
-            "roid", new string[] {
-                "ID:3F4DC055-EE69-4EFC-BAB9-FDF2E9A96A5E",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=58)]
-        public virtual void MainView_TheUserRemovesATaskAndCheckThatTheTaskHasBeenRemoved_Android()
-        {
-            this.MainView_TheUserRemovesATaskAndCheckThatTheTaskHasBeenRemoved("Android", ((string[])(null)));
-#line hidden
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]

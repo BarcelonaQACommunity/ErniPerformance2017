@@ -61,56 +61,31 @@ namespace UserStories.AcceptanceTest.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void EditTaskView_CheckThatTheCreatedTaskHasTheCorrectValuesInTheEditView(string configuration, string[] exampleTags)
+        [TechTalk.SpecRun.ScenarioAttribute("Edit Task View - Check that the created task has the correct values in the edit v" +
+            "iew", new string[] {
+                "ID:038A7EA2-CF10-4F9A-86AF-F620E63CDC90",
+                "Owner:",
+                "Juan",
+                "Serna"}, SourceLine=7)]
+        public virtual void EditTaskView_CheckThatTheCreatedTaskHasTheCorrectValuesInTheEditView()
         {
-            string[] @__tags = new string[] {
-                    "ID:038A7EA2-CF10-4F9A-86AF-F620E63CDC90",
-                    "Owner:",
-                    "Juan",
-                    "Serna"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Task View - Check that the created task has the correct values in the edit v" +
-                    "iew", @__tags);
+                    "iew", new string[] {
+                        "ID:038A7EA2-CF10-4F9A-86AF-F620E63CDC90",
+                        "Owner:",
+                        "Juan",
+                        "Serna"});
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
+                    "he content\', and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.When("The user creates a task with the title \'Prepare meetup\', the content \'Check all t" +
-                    "he content\', and the color \'Red\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("The user goes to the task \'1\' edit view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.And("The user goes to the task \'1\' edit view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
  testRunner.Then("The task has the title \'Prepare meetup\' and the content \'Check all the content\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Edit Task View - Check that the created task has the correct values in the edit v" +
-            "iew, Web", new string[] {
-                "ID:038A7EA2-CF10-4F9A-86AF-F620E63CDC90",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=15)]
-        public virtual void EditTaskView_CheckThatTheCreatedTaskHasTheCorrectValuesInTheEditView_Web()
-        {
-            this.EditTaskView_CheckThatTheCreatedTaskHasTheCorrectValuesInTheEditView("Web", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Edit Task View - Check that the created task has the correct values in the edit v" +
-            "iew, Android", new string[] {
-                "ID:038A7EA2-CF10-4F9A-86AF-F620E63CDC90",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=15)]
-        public virtual void EditTaskView_CheckThatTheCreatedTaskHasTheCorrectValuesInTheEditView_Android()
-        {
-            this.EditTaskView_CheckThatTheCreatedTaskHasTheCorrectValuesInTheEditView("Android", ((string[])(null)));
-#line hidden
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]

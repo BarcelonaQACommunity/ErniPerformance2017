@@ -23,14 +23,7 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public AddTaskViewSteps()
         {
-            if (Configuration.CurrentConfiguration == Configuration.DriverConfiguration.Android)
-            {
-                _addTaskViewPage = AppContainer.AndroidContainer.Resolve<IAddTaskPage>();
-            }
-            else
-            {
-                _addTaskViewPage = AppContainer.WebContainer.Resolve<IAddTaskPage>();
-            }
+            _addTaskViewPage = AppContainer.Container.Resolve<IAddTaskPage>();
         }
 
         /// <summary>

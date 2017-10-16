@@ -24,28 +24,8 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public MainViewSteps()
         {
-            Configuration.CurrentScenario = ScenarioContext.Current.ScenarioInfo.Title;
-        }
-
-        /// <summary>
-        /// Default configuration Step.
-        /// </summary>
-        /// <param name="configuration">The configuration.</param>
-        [Given(@"The application is running with the '(.*)' configuration")]
-        public void TheApplicationIsRunningWithTheDefaultConfiguration(string configuration)
-        {
-            if (configuration == "Web")
-            {
-                Configuration.CurrentConfiguration = Configuration.DriverConfiguration.Web;
-
-                _mainViewPage = AppContainer.WebContainer.Resolve<IMainViewPage>();
-
-            }
-            else
-            {
-                Configuration.CurrentConfiguration = Configuration.DriverConfiguration.Android;
-                _mainViewPage = AppContainer.AndroidContainer.Resolve<IMainViewPage>();
-            }
+            ConfigurationDataService.CurrentScenario = ScenarioContext.Current.ScenarioInfo.Title;
+            _mainViewPage = AppContainer.Container.Resolve<IMainViewPage>();
         }
 
         /// <summary>
@@ -113,11 +93,11 @@ namespace UserStories.AcceptanceTest.Steps
         public void AfterScenario()
         {
             // Set the result in the saucelabs dashboard.
-            Configuration.IsPass = true;
+            ConfigurationDataService.IsPass = true;
 
             if (ScenarioContext.Current.TestError != null)
             {
-                Configuration.IsPass = false;
+                ConfigurationDataService.IsPass = false;
 
                 // Take a screenshot if the test fails.
                 _mainViewPage.TakeScreenshot(ScenarioContext.Current.ScenarioInfo.Title);

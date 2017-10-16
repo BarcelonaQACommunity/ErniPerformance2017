@@ -61,7 +61,7 @@ namespace UserStories.AcceptanceTest.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void AddTaskView_CheckTheValuesFromTheTask(string configuration, string title, string content, string color, string[] exampleTags)
+        public virtual void AddTaskView_CheckTheValuesFromTheTask(string title, string content, string color, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "ID:FCA58CA7-D7F7-4F20-B65E-269A8864E47E",
@@ -76,82 +76,47 @@ namespace UserStories.AcceptanceTest.Features
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.Given(string.Format("The application is running with the \'{0}\' configuration", configuration), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The user goes to the add task view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.And("The user goes to the add task view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
  testRunner.When(string.Format("The user sets the task with the title \'{0}\', the content \'{1}\', and the color \'{2" +
                         "}\'", title, content, color), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
+#line 11
  testRunner.Then(string.Format("The user check that the title \'{0}\' and the content \'{1}\' from the task are the c" +
                         "orrect values", title, content), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Variant 0", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Title 1", new string[] {
                 "ID:FCA58CA7-D7F7-4F20-B65E-269A8864E47E",
                 "Owner:",
                 "Juan",
-                "Serna"}, SourceLine=15)]
-        public virtual void AddTaskView_CheckTheValuesFromTheTask_Variant0()
+                "Serna"}, SourceLine=14)]
+        public virtual void AddTaskView_CheckTheValuesFromTheTask_Title1()
         {
-            this.AddTaskView_CheckTheValuesFromTheTask("Web", "Title 1", "This is a content 1", "Red", ((string[])(null)));
+            this.AddTaskView_CheckTheValuesFromTheTask("Title 1", "This is a content 1", "Red", ((string[])(null)));
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Variant 1", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Title 2", new string[] {
                 "ID:FCA58CA7-D7F7-4F20-B65E-269A8864E47E",
                 "Owner:",
                 "Juan",
-                "Serna"}, SourceLine=15)]
-        public virtual void AddTaskView_CheckTheValuesFromTheTask_Variant1()
+                "Serna"}, SourceLine=14)]
+        public virtual void AddTaskView_CheckTheValuesFromTheTask_Title2()
         {
-            this.AddTaskView_CheckTheValuesFromTheTask("Web", "Title 2", "This is a content 2", "White", ((string[])(null)));
+            this.AddTaskView_CheckTheValuesFromTheTask("Title 2", "This is a content 2", "White", ((string[])(null)));
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Variant 2", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Title 3", new string[] {
                 "ID:FCA58CA7-D7F7-4F20-B65E-269A8864E47E",
                 "Owner:",
                 "Juan",
-                "Serna"}, SourceLine=15)]
-        public virtual void AddTaskView_CheckTheValuesFromTheTask_Variant2()
+                "Serna"}, SourceLine=14)]
+        public virtual void AddTaskView_CheckTheValuesFromTheTask_Title3()
         {
-            this.AddTaskView_CheckTheValuesFromTheTask("Web", "Title 3", "This is a content 3", "Yellow", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Variant 3", new string[] {
-                "ID:FCA58CA7-D7F7-4F20-B65E-269A8864E47E",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=15)]
-        public virtual void AddTaskView_CheckTheValuesFromTheTask_Variant3()
-        {
-            this.AddTaskView_CheckTheValuesFromTheTask("Android", "Title 1", "This is a content 1", "Red", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Variant 4", new string[] {
-                "ID:FCA58CA7-D7F7-4F20-B65E-269A8864E47E",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=15)]
-        public virtual void AddTaskView_CheckTheValuesFromTheTask_Variant4()
-        {
-            this.AddTaskView_CheckTheValuesFromTheTask("Android", "Title 2", "This is a content 2", "Blue", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Add Task View - Check the values from the task, Variant 5", new string[] {
-                "ID:FCA58CA7-D7F7-4F20-B65E-269A8864E47E",
-                "Owner:",
-                "Juan",
-                "Serna"}, SourceLine=15)]
-        public virtual void AddTaskView_CheckTheValuesFromTheTask_Variant5()
-        {
-            this.AddTaskView_CheckTheValuesFromTheTask("Android", "Title 3", "This is a content 3", "White", ((string[])(null)));
+            this.AddTaskView_CheckTheValuesFromTheTask("Title 3", "This is a content 3", "Yellow", ((string[])(null)));
 #line hidden
         }
         

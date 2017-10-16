@@ -34,9 +34,6 @@ namespace Factory.SetUp
                 return _webDriver;
             }
 
-            // Parameter to set saucelabs dashboard configuration in order to add the current scenario and if fails or not the test
-            Configuration.IsSaucelabsConfiguration = false;
-
             var chromeFullPath = Directory.GetParent(Directory.GetCurrentDirectory()) + ChromeDriverPath;
 
             _webDriver = new ChromeDriver(ChromeDriverService.CreateDefaultService(chromeFullPath), new ChromeOptions(), TimeSpan.FromSeconds(30));
@@ -66,9 +63,6 @@ namespace Factory.SetUp
                 return _appiumDriver;
             }
 
-            // Parameter to set saucelabs dashboard configuration in order to add the current scenario and if fails or not the test
-            Configuration.IsSaucelabsConfiguration = false;
-
             var appFullPath = Directory.GetParent(Directory.GetCurrentDirectory()) + AndroidApplicationPath;
 
             // Set up capabilities.
@@ -97,9 +91,6 @@ namespace Factory.SetUp
             {
                 return _appiumDriver;
             }
-
-            // Parameter to set saucelabs dashboard configuration in order to add the current scenario and if fails or not the test
-            Configuration.IsSaucelabsConfiguration = false;
 
             var appFullPath = Directory.GetParent(Directory.GetCurrentDirectory()) + AndroidApplicationPath;
 
@@ -135,9 +126,6 @@ namespace Factory.SetUp
                 return _appiumDriver;
             }
 
-            // Parameter to set saucelabs dashboard configuration in order to add the current scenario and if fails or not the test
-            Configuration.IsSaucelabsConfiguration = true;
-
             var capabilities = new DesiredCapabilities();
             capabilities.SetCapability("platformName", "Android");
             capabilities.SetCapability("platformVersion", "7.0");
@@ -145,7 +133,7 @@ namespace Factory.SetUp
             capabilities.SetCapability("app", "sauce-storage:mylist.apk");
             capabilities.SetCapability("username", "Outsource");
             capabilities.SetCapability("accessKey", "e2cb260f-7805-4685-828e-af1065b61447");
-            capabilities.SetCapability("name", Configuration.CurrentScenario);
+            capabilities.SetCapability("name", ConfigurationDataService.CurrentScenario);
 
             _appiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), capabilities, TimeSpan.FromSeconds(600));
 
@@ -157,9 +145,9 @@ namespace Factory.SetUp
         /// </summary>
         public void CloseAndroidDriver()
         {
-            if (Configuration.IsSaucelabsConfiguration)
+            if (ConfigurationDataService.Configuration.IsSauceLabs)
             {
-                ((IJavaScriptExecutor)_appiumDriver).ExecuteScript("sauce:job-result=" + (Configuration.IsPass ? "passed" : "failed"));
+                ((IJavaScriptExecutor)_appiumDriver).ExecuteScript("sauce:job-result=" + (ConfigurationDataService.IsPass ? "passed" : "failed"));
             }
 
             _appiumDriver?.Dispose();
@@ -171,9 +159,9 @@ namespace Factory.SetUp
         /// </summary>
         public void CloseWebDriver()
         {
-            if (Configuration.IsSaucelabsConfiguration)
+            if (ConfigurationDataService.Configuration.IsSauceLabs)
             {
-                ((IJavaScriptExecutor)_appiumDriver).ExecuteScript("sauce:job-result=" + (Configuration.IsPass ? "passed" : "failed"));
+                ((IJavaScriptExecutor)_appiumDriver).ExecuteScript("sauce:job-result=" + (ConfigurationDataService.IsPass ? "passed" : "failed"));
             }
 
             _webDriver?.Dispose();

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using CrossLayer.DI.Module;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pageobject.Factory.Contracts.Pages.Contracts;
 using TechTalk.SpecFlow;
 using UserStories.AcceptanceTest.Steps.Base;
-using CrossLayer.Configuration;
 
 namespace UserStories.AcceptanceTest.Steps
 {
@@ -28,16 +22,13 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public NewGroupViewSteps()
         {
-            if (Configuration.CurrentConfiguration == Configuration.DriverConfiguration.Android)
-            {
-                _groupPage = AppContainer.AndroidContainer.Resolve<INewGroupPage>();
-            }
-            else
-            {
-                _groupPage = AppContainer.WebContainer.Resolve<INewGroupPage>();
-            }
+            _groupPage = AppContainer.Container.Resolve<INewGroupPage>();
         }
 
+        /// <summary>
+        /// Thes the user selects the group.
+        /// </summary>
+        /// <param name="groupName">Name of the group.</param>
         [Given("The user selects the group '(.*)'")]
         [When("The user selects the group '(.*)'")]
         public void TheUserSelectsTheGroup(string groupName)

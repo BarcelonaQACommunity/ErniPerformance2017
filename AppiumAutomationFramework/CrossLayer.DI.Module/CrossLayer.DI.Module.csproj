@@ -51,6 +51,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CrossLayer.Configuration\CrossLayer.Configuration.csproj">
+      <Project>{4a116779-794a-4a29-bd15-47036788f81a}</Project>
+      <Name>CrossLayer.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Factory.SetUp\Factory.SetUp.csproj">
       <Project>{d361c7dc-cf40-42a5-8f32-8dd78c477336}</Project>
       <Name>Factory.SetUp</Name>
