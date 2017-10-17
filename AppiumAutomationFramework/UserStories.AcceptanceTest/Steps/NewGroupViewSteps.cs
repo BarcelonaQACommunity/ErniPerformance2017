@@ -11,6 +11,10 @@ namespace UserStories.AcceptanceTest.Steps
     /// New Group View class, contains all related steps with this view.
     /// </summary>
     /// <seealso cref="UserStories.AcceptanceTest.Steps.Base.BaseStep" />
+    /// 
+    //EXERCISES:
+    //1 - Create an Assert that checks if the group has no name and the "The NewGroup field is required." was triggered.
+    //
     [Binding]
     public class NewGroupViewSteps : BaseStep
     {

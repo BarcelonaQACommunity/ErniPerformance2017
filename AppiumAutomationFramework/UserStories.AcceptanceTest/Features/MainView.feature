@@ -18,19 +18,5 @@ Scenario: Main View - When the user creates a task the main view have one task
 	And The user creates the task
 	Then The application has '1' task created
 
-@ID:78DD63E3-1134-4A0D-97E4-695FC1B06421
-@Owner: Juan Serna
-Scenario: Main View - When the user creates three tasks and the main view have three tasks
-	Given The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'White'
-	And The user creates a task with the title 'Buy pizzas', the content 'Call and buy pizzas', and the color 'White'
-	And The user creates a task with the title 'Feedback', the content 'Ask for feedback', and the color 'Yellow'
-	Then The application has '3' task created
-
-@ID:3F4DC055-EE69-4EFC-BAB9-FDF2E9A96A5E
-@Owner: Juan Serna
-Scenario: Main View - The user removes a task and check that the task has been removed
-	Given The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'Red'
-	And The user creates a task with the title 'Buy pizzas', the content 'Call and buy pizzas', and the color 'White'
-	And The user creates a task with the title 'Feedback', the content 'Ask for feedback', and the color 'Blue'
-	When The user removes the task '2'
-	Then The application has '2' task created
+@Exercise1:
+@TODO: The user adds 3 tasks and then must deleted all of them, implement the corresponding Gerkin (MainViewSteps.cs).

@@ -57,7 +57,7 @@ namespace Pageobject.Web.Factory
         /// </summary>
         public void RemoveTask(string task)
         {
-            WebDriver.FindElement(By.XPath($"//div[@id='item-{int.Parse(task)}']/div/a[2]")).Click();
+            //TODO: Implement algorithm.
         }
     }
 }
