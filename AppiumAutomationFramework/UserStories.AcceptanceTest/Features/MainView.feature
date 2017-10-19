@@ -18,5 +18,5 @@ Scenario: Main View - When the user creates a task the main view have one task
 	And The user creates the task
 	Then The application has '1' task created
 
-@Exercise1:
-@TODO: The user adds 3 tasks and then must deleted all of them, implement the corresponding Gerkin (MainViewSteps.cs).
+#Exercise1:
+#TODO: The user adds 3 tasks and then must deleted all of them, implement the corresponding Gerkin (MainViewSteps.cs).
