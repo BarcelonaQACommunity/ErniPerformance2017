@@ -56,7 +56,8 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <param name="groupName">Name of the group.</param>
         public bool IsGroupCreated(string groupName)
         {
-            return _groupList.Any(g => g.Text == groupName);
+            // TODO - Check if group was created
+            return true;
         }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// <param name="groupName">Name of the group.</param>
         public void SelectsGroup(string groupName)
         {
-            _groupList.First(g => g.Text == groupName).Click();
+            // TODO - Select the name of the group
         }
     }
 }

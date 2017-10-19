@@ -19,9 +19,6 @@ namespace Pageobject.Web.Factory
         [FindsBy(How = How.Id, Using = "button-addItem")]
         private IWebElement _taskNewItemButton;
 
-        [FindsBy(How = How.Id, Using = "dropDown-itemColor")]
-        private IWebElement _colorDropDownMenu;
-
         #endregion
 
         /// <summary>
@@ -57,7 +54,9 @@ namespace Pageobject.Web.Factory
         /// </summary>
         public void RemoveTask(string task)
         {
-            //TODO: Implement algorithm.
+            //TODO Find and click delete button
         }
+
+        //TODO: Edit color
     }
 }

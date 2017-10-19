@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Base.Web\WebPageObjectBase.cs" />
     <Compile Include="Pages.Web\WebMainViewPage.cs" />
+    <Compile Include="Pages.Web\WebNewGroupPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages.Web\WebAddTaskPage.cs" />
     <Compile Include="Pages.Web\WebEditTaskPage.cs" />

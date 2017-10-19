@@ -9,3 +9,6 @@ Scenario: Edit Task View - Check that the created task has the correct values in
 	Given The user creates a task with the title 'Prepare meetup', the content 'Check all the content', and the color 'Red'
 	When The user goes to the task '1' edit view
 	Then The task has the title 'Prepare meetup' and the content 'Check all the content'
+
+#Exercise1:
+#TODO: The user edits the task from above to color Red , implement the corresponding Gerkin (MainViewSteps.cs).

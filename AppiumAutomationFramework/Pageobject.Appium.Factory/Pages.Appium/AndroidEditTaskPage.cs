@@ -27,12 +27,6 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         [FindsBy(How = How.Id, Using = "douzifly.list:id/txt_content")]
         private IWebElement _taskContent;
 
-        /// <summary>
-        /// Button to remove the task.
-        /// </summary>
-        [FindsBy(How = How.Id, Using = "douzifly.list:id/action_delete")]
-        private IWebElement _removeButton;
-
         #endregion
 
         /// <summary>
@@ -67,7 +61,9 @@ namespace Pageobject.Appium.Factory.Pages.Appium
         /// </summary>
         public void RemoveTask(string task)
         {
-            _removeButton.Click();
+            //TODO - Remove task
         }
+
+        //TODO Edit color
     }
 }

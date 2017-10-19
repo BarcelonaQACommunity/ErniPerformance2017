@@ -24,9 +24,6 @@ namespace Pageobject.Web.Factory
         [FindsBy(How = How.Id, Using = "button-addItem")]
         private IWebElement _taskNewItemButton;
 
-        [FindsBy(How = How.Id, Using = "dropDown-itemColor")]
-        private IWebElement _colorDropDownMenu;
-
         #endregion
 
         /// <summary>
@@ -71,13 +68,7 @@ namespace Pageobject.Web.Factory
         /// <param name="color">The color.</param>
         public void SetTaskColor(string color)
         {
-            foreach (var item in _colorDropDownMenu.FindElements(By.TagName("option")))
-            {
-                if (color == item.Text)
-                {
-                    item.Click();
-                }
-            }
+            //TODO Add color
         }
     }
 }

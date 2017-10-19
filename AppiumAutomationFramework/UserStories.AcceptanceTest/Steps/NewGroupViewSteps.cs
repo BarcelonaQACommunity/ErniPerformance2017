@@ -13,8 +13,8 @@ namespace UserStories.AcceptanceTest.Steps
     /// <seealso cref="UserStories.AcceptanceTest.Steps.Base.BaseStep" />
     /// 
     //EXERCISES:
-    //1 - Create an Assert that checks if the group has no name and the "The NewGroup field is required." was triggered.
-    //
+    //1 - Implement the gerkin expressions to select, create and check for the groups (In the interface INewGroupPage, the methods are defined).
+    //2 - Create an Assert that checks if the group has no name and the "The NewGroup field is required." was triggered.
     [Binding]
     public class NewGroupViewSteps : BaseStep
     {
@@ -28,36 +28,7 @@ namespace UserStories.AcceptanceTest.Steps
         {
             _groupPage = AppContainer.Container.Resolve<INewGroupPage>();
         }
-
-        /// <summary>
-        /// Thes the user selects the group.
-        /// </summary>
-        /// <param name="groupName">Name of the group.</param>
-        [Given("The user selects the group '(.*)'")]
-        [When("The user selects the group '(.*)'")]
-        public void TheUserSelectsTheGroup(string groupName)
-        {
-            _groupPage.SelectsGroup(groupName);
-        }
-
-        /// <summary>
-        /// The user creates the group.
-        /// </summary>
-        /// <param name="groupName">Name of the group.</param>
-        [When("The user creates the group '(.*)'")]
-        public void TheUserCreatesTheGroup(string groupName)
-        {
-            _groupPage.CreatesNewGroup(groupName);
-        }
-
-        /// <summary>
-        /// Thes the group is created.
-        /// </summary>
-        /// <param name="groupName">Name of the group.</param>
-        [Then("The group '(.*)' is created")]
-        public void TheGroupIsCreated(string groupName)
-        {
-            Assert.IsTrue(_groupPage.IsGroupCreated(groupName), $"The group {groupName} does not exist");  
-        }
+        
+        //TODO: Exercise 1 + 2
     }
 }
