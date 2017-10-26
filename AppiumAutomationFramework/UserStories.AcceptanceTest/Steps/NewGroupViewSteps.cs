@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CrossLayer.Configuration;
 using CrossLayer.DI.Module;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pageobject.Factory.Contracts.Pages.Contracts;
@@ -22,6 +23,7 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public NewGroupViewSteps()
         {
+            ConfigurationDataService.CurrentScenario = ScenarioContext.Current.ScenarioInfo.Title;
             _groupPage = AppContainer.Container.Resolve<INewGroupPage>();
         }
 

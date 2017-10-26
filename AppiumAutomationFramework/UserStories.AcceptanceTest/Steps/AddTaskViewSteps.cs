@@ -23,6 +23,7 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public AddTaskViewSteps()
         {
+            ConfigurationDataService.CurrentScenario = ScenarioContext.Current.ScenarioInfo.Title;
             _addTaskViewPage = AppContainer.Container.Resolve<IAddTaskPage>();
         }
 

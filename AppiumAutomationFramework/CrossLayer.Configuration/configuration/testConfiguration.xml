@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TestConfiguration>
-  <Environment>Web</Environment>
-  <IsSauceLabs>false</IsSauceLabs>
+  <Environment>Android</Environment>
+  <IsSauceLabs>true</IsSauceLabs>
 </TestConfiguration>

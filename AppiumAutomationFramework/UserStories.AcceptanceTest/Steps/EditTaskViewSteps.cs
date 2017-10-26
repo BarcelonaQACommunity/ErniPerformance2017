@@ -23,6 +23,7 @@ namespace UserStories.AcceptanceTest.Steps
         /// </summary>
         public EditTaskViewSteps()
         {
+            ConfigurationDataService.CurrentScenario = ScenarioContext.Current.ScenarioInfo.Title;
             _editTaskViewPage = AppContainer.Container.Resolve<IEditTaskPage>();
         }
 
