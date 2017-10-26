@@ -131,8 +131,8 @@ namespace Factory.SetUp
             capabilities.SetCapability("platformVersion", "7.0");
             capabilities.SetCapability("deviceName", "Android GoogleAPI Emulator");
             capabilities.SetCapability("app", "sauce-storage:mylist.apk");
-            capabilities.SetCapability("username", "Outsource");
-            capabilities.SetCapability("accessKey", "e2cb260f-7805-4685-828e-af1065b61447");
+            capabilities.SetCapability("username", "didac");
+            capabilities.SetCapability("accessKey", "feedeeec-3b13-4848-b684-1a14c0f951e2");
             capabilities.SetCapability("name", ConfigurationDataService.CurrentScenario);
 
             _appiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), capabilities, TimeSpan.FromSeconds(600));
