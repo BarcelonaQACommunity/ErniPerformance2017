@@ -49,6 +49,40 @@ namespace Factory.SetUp
         }
 
         /// <summary>
+        /// Sets up web sauce labs driver.
+        /// </summary>
+        /// <returns></returns>
+        public IWebDriver SetUpWebSauceLabsDriver()
+        {
+            if (_webDriver != null)
+            {
+                return _webDriver;
+            }
+
+            var capabilities = new DesiredCapabilities();
+            capabilities.SetCapability(CapabilityType.BrowserName, "chrome");
+            capabilities.SetCapability(CapabilityType.Version, "45");
+            capabilities.SetCapability(CapabilityType.Platform, "Windows 10");
+            capabilities.SetCapability("deviceName", string.Empty);
+            capabilities.SetCapability("deviceOrientation", string.Empty);
+            capabilities.SetCapability("username", "junyoron");
+            capabilities.SetCapability("accessKey", "fe2e5f19-8922-4f8e-a407-2722fa2ee0d5");
+            capabilities.SetCapability("name", ConfigurationDataService.CurrentScenario);
+
+            _webDriver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), capabilities, TimeSpan.FromSeconds(600));
+
+            _webDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
+            _webDriver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30));
+            _webDriver.Manage().Timeouts().SetScriptTimeout(TimeSpan.FromSeconds(30));
+
+            _webDriver.Manage().Window.Maximize();
+
+            _webDriver.Navigate().GoToUrl("http://qaperformance.azurewebsites.net");
+
+            return _webDriver;
+        }
+
+        /// <summary>
         /// See Wiki to set up the desired capabilities.
         /// <seealso cref="https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests"/>
         /// See Wiki to use the Platform Configuration tool.
@@ -77,35 +111,6 @@ namespace Factory.SetUp
             capabilities.SetCapability("deviceName", "generic_x86");
 
             _appiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), capabilities, TimeSpan.FromSeconds(60));
-
-            return _appiumDriver;
-        }
-
-        /// <summary>
-        /// See Wiki to set up the desired capabilities.
-        /// <seealso cref="https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests"/>
-        /// </summary>
-        public AppiumDriver<AndroidElement> SetUpAndroidDeviceDriver()
-        {
-            if (_appiumDriver != null)
-            {
-                return _appiumDriver;
-            }
-
-            var appFullPath = Directory.GetParent(Directory.GetCurrentDirectory()) + AndroidApplicationPath;
-
-            // Set up capabilities.
-            // See Appium Capabilities wiki.
-            var capabilities = new DesiredCapabilities();
-            capabilities.SetCapability("platformName", "Android");
-            capabilities.SetCapability("platformVersion", "6.0.1");
-            capabilities.SetCapability("fastReset", "True");
-            capabilities.SetCapability("app", appFullPath);
-
-            // To see the device name with the cmd console check adb devices -l
-            capabilities.SetCapability("deviceName", "trlte");
-
-            _appiumDriver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), capabilities, TimeSpan.FromSeconds(600));
 
             return _appiumDriver;
         }
@@ -161,7 +166,7 @@ namespace Factory.SetUp
         {
             if (ConfigurationDataService.Configuration.IsSauceLabs)
             {
-                ((IJavaScriptExecutor)_appiumDriver).ExecuteScript("sauce:job-result=" + (ConfigurationDataService.IsPass ? "passed" : "failed"));
+                ((IJavaScriptExecutor)_webDriver).ExecuteScript("sauce:job-result=" + (ConfigurationDataService.IsPass ? "passed" : "failed"));
             }
 
             _webDriver?.Dispose();

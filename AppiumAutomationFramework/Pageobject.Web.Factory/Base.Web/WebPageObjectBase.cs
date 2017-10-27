@@ -31,7 +31,7 @@ namespace Pageobject.Web.Factory.Base.Web
 
             if (ConfigurationDataService.Configuration.IsSauceLabs)
             {
-                // TODO - Add saucelabs configuration.
+                WebDriver = setUpWebDriver.SetUpWebSauceLabsDriver();
             }
             else
             {

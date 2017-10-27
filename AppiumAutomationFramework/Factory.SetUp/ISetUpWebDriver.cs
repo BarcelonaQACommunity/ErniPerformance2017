@@ -16,12 +16,6 @@ namespace Factory.SetUp
         AppiumDriver<AndroidElement> SetUpAndroidWebDriver();
 
         /// <summary>
-        /// Sets up android device driver.
-        /// </summary>
-        /// <returns></returns>
-        AppiumDriver<AndroidElement> SetUpAndroidDeviceDriver();
-
-        /// <summary>
         /// Sets up android sauce labs driver.
         /// </summary>
         /// <returns></returns>
@@ -32,6 +26,12 @@ namespace Factory.SetUp
         /// </summary>
         /// <returns></returns>
         IWebDriver SetUpWebWebDriver();
+
+        /// <summary>
+        /// Sets up web sauce labs driver.
+        /// </summary>
+        /// <returns></returns>
+        IWebDriver SetUpWebSauceLabsDriver();
 
         /// <summary>
         /// Makes the web screenshot.
