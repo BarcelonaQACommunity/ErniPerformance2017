@@ -1,6 +1,7 @@
 ﻿using CrossLayer.Configuration;
 using Factory.SetUp;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using Pageobject.Factory.Contracts.Base.Contracts;
 
 namespace Pageobject.Web.Factory.Base.Web
@@ -20,6 +21,10 @@ namespace Pageobject.Web.Factory.Base.Web
         /// The web driver
         /// </summary>
         protected IWebDriver WebDriver;
+
+        //test
+        [FindsBy(How = How.Id, Using = "textBox-itemTitle")]
+        private IWebElement _taskTitleTextBox;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WebPageObjectBase"/> class.
