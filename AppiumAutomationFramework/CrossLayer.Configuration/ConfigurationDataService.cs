@@ -3,6 +3,8 @@ using System.Xml.Serialization;
 
 namespace CrossLayer.Configuration
 {
+    using System;
+
     /// <summary>
     /// Transversal configuration.
     /// </summary>
@@ -38,10 +40,17 @@ namespace CrossLayer.Configuration
 
         private static void GetConfigurationFromXml()
         {
-            var serializer = new XmlSerializer(typeof(ConfigurationEntity));
-            using (var stream = new FileStream(Directory.GetCurrentDirectory() + XmlFileConfigurationPath, FileMode.Open))
+            try
             {
-                Configuration = (ConfigurationEntity)serializer.Deserialize(stream);
+                var serializer = new XmlSerializer(typeof(ConfigurationEntity));
+                using (var stream = new FileStream(Directory.GetCurrentDirectory() + XmlFileConfigurationPath, FileMode.Open))
+                {
+                    Configuration = (ConfigurationEntity)serializer.Deserialize(stream);
+                }
+            }
+            catch (Exception)
+            {
+                GetConfigurationFromXml();
             }
         }
     }
